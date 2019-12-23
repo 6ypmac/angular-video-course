@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserLoginInterface } from './user-login.interface';
+import { UserLoginService } from './user-login.service';
 
 @Component({
   selector: 'vc-user-login',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
+  users: UserLoginInterface[];
 
-  constructor() { }
+  constructor(
+    private userLoginService: UserLoginService,
+  ) {}
 
   ngOnInit() {
+    this.users = this.userLoginService.getUsers();
   }
-
 }
