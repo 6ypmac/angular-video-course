@@ -1,0 +1,18 @@
+.course-box {
+  padding: 10px;
+  margin: 10px 0;
+  background: #eee;
+  border: 1px solid #ddd;
+}
+
+.buttons-box {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+
+  button {
+    & + button {
+      margin-left: 10px;
+    }
+  }
+}

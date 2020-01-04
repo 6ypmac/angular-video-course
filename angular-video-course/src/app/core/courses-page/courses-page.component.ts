@@ -18,4 +18,8 @@ export class CoursesPageComponent implements OnInit {
     this.courses = this.coursesService.getCourses();
   }
 
+  public onDelete(id: string): void {
+    this.courses = this.courses.filter((item: CourseInterface) => item.id !== id);
+  }
+
 }

@@ -6,11 +6,22 @@ import { LogoComponent } from './header/logo/logo.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { CoursesPageComponent } from './courses-page/courses-page.component';
 import { UserLoginComponent } from './header/user-login/user-login.component';
+import { CourseComponent } from './courses-page/course/course.component';
+import { SearchComponent } from './courses-page/search/search.component';
+import {FormsModule} from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, LogoComponent, BreadcrumbsComponent, CoursesPageComponent, UserLoginComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    LogoComponent,
+    BreadcrumbsComponent,
+    CoursesPageComponent,
+    UserLoginComponent,
+    CourseComponent,
+    SearchComponent],
   exports: [
     HeaderComponent,
     FooterComponent,
@@ -18,7 +29,8 @@ import { UserLoginComponent } from './header/user-login/user-login.component';
     CoursesPageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class CoreModule { }
