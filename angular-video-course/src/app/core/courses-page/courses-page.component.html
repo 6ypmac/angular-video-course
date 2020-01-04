@@ -1,11 +1,6 @@
-<div *ngFor="let course of courses">
-  <h3>{{ course.title }}</h3>
-  <h4>
-    <span>{{ course.duration }}</span>
-    &nbsp;
-    <span>{{ course.creationDate  | date: 'mediumDate'}}</span>
-  </h4>
-  <p>
-    {{ course.description }}
-  </p>
+<vc-search></vc-search>
+<div class="add-course-button-box">
+  <button>Add course</button>
 </div>
+<vc-course (onDelete)="onDelete($event)" *ngFor="let course of courses" [course]="course"></vc-course>
+

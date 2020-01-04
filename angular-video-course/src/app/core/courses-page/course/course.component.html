@@ -1,0 +1,15 @@
+<div class="course-box">
+  <h3>{{ course.title }}</h3>
+  <h4>
+    <span>{{ course.duration }}</span>
+    &nbsp;
+    <span>{{ course.creationDate  | date: 'mediumDate'}}</span>
+  </h4>
+  <p>
+    {{ course.description }}
+  </p>
+  <div class="buttons-box">
+    <button>Edit</button>
+    <button (click)="delete()">Delete</button>
+  </div>
+</div>
