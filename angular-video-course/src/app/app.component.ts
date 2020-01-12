@@ -25,8 +25,6 @@ export class AppComponent implements AfterContentChecked,
   OnDestroy,
   OnInit {
 
-  title = 'Angular Video Course from EPAM';
-
   constructor() {}
 
   public ngAfterContentChecked(): void {

@@ -2,5 +2,5 @@
 <div class="add-course-button-box">
   <button>Add course</button>
 </div>
-<vc-course (onDelete)="onDelete($event)" *ngFor="let course of courses" [course]="course"></vc-course>
+<vc-course (deleteCourse)="onDelete($event)" *ngFor="let course of courses" [course]="course"></vc-course>
 

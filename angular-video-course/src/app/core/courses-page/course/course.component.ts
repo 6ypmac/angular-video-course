@@ -8,7 +8,7 @@ import { CourseInterface } from '../course.interface';
 })
 export class CourseComponent implements OnInit {
   @Input() course: CourseInterface;
-  @Output() onDelete: EventEmitter<string> = new EventEmitter<string>();
+  @Output() deleteCourse: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
@@ -16,7 +16,7 @@ export class CourseComponent implements OnInit {
   }
 
   public delete(): void {
-    this.onDelete.emit(this.course.id);
+    this.deleteCourse.emit(this.course.id);
   }
 
 }
