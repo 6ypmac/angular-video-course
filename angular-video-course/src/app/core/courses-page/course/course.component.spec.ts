@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CourseComponent } from './course.component';
 import { CourseInterface } from '../course.interface';
 
@@ -8,12 +7,15 @@ describe('CourseComponent', () => {
   let component: CourseComponent;
   let fixture: ComponentFixture<CourseComponent>;
   let expectedCourse: CourseInterface;
-  let courseEl: DebugElement;
+  let compiledComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         CourseComponent
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
       ]
     })
     .compileComponents();
@@ -22,7 +24,7 @@ describe('CourseComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CourseComponent);
     component = fixture.componentInstance;
-    courseEl = fixture.debugElement.query(By.css('.course-box'));
+    compiledComponent = fixture.debugElement.nativeElement;
 
     expectedCourse = {
       id: '1',
@@ -52,7 +54,11 @@ describe('CourseComponent', () => {
 
   it('should display title of course', () => {
     const expectedTitleOfCourse = expectedCourse.titleOfCourse;
-    expect(courseEl.nativeElement.textContent).toContain(expectedTitleOfCourse);
+    expect(
+      compiledComponent
+        .querySelector('[data-test-id="course-title"]')
+        .textContent
+    ).toContain(expectedTitleOfCourse);
   });
 });
 

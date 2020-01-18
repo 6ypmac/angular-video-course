@@ -1,24 +1,25 @@
-import {TestBed, async, ComponentFixture} from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
-import { CoreModule } from './core/core.module';
-import { By } from '@angular/platform-browser';
-import {SearchComponent} from './core/courses-page/search/search.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
+  let compiledComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        FormsModule,
-        CoreModule
+        BrowserModule
       ],
       declarations: [
         AppComponent
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
       ]
     }).compileComponents();
   }));
@@ -27,51 +28,26 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    compiledComponent = fixture.debugElement.nativeElement;
   });
 
   it('should create the app', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should emit ngOnInit action', () => {
-    const spy = spyOn(component, 'ngOnInit');
-    component.ngOnInit();
-    expect(spy).toHaveBeenCalled();
+  it('should render header component', () => {
+    expect(compiledComponent.querySelector('[data-test-id="vc-header"]')).toBeTruthy();
   });
 
-  it('should emit ngDoCheck action', () => {
-    const spy = spyOn(component, 'ngDoCheck');
-    component.ngDoCheck();
-    expect(spy).toHaveBeenCalled();
+  it('should render breadcrumbs component', () => {
+    expect(compiledComponent.querySelector('[data-test-id="vc-breadcrumbs"]')).toBeTruthy();
   });
 
-  it('should emit ngAfterContentInit action', () => {
-    const spy = spyOn(component, 'ngAfterContentInit');
-    component.ngAfterContentInit();
-    expect(spy).toHaveBeenCalled();
+  it('should render content component', () => {
+    expect(compiledComponent.querySelector('[data-test-id="vc-content"]')).toBeTruthy();
   });
 
-  it('should emit ngAfterContentChecked action', () => {
-    const spy = spyOn(component, 'ngAfterContentChecked');
-    component.ngAfterContentChecked();
-    expect(spy).toHaveBeenCalled();
-  });
-
-  it('should emit ngAfterViewInit action', () => {
-    const spy = spyOn(component, 'ngAfterViewInit');
-    component.ngAfterViewInit();
-    expect(spy).toHaveBeenCalled();
-  });
-
-  it('should emit ngAfterViewChecked action', () => {
-    const spy = spyOn(component, 'ngAfterViewChecked');
-    component.ngAfterViewChecked();
-    expect(spy).toHaveBeenCalled();
-  });
-
-  it('should emit ngOnDestroy action', () => {
-    const spy = spyOn(component, 'ngOnDestroy');
-    component.ngOnDestroy();
-    expect(spy).toHaveBeenCalled();
+  it('should render footer component', () => {
+    expect(compiledComponent.querySelector('[data-test-id="vc-footer"]')).toBeTruthy();
   });
 });

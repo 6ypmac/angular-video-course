@@ -1,12 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
 import { CoursesPageComponent } from './courses-page.component';
-import { SearchComponent } from './search/search.component';
-import { CourseComponent } from './course/course.component';
 import { CoursesService } from './courses.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe('CoursesPageComponent', () => {
   let component: CoursesPageComponent;
@@ -15,16 +11,14 @@ describe('CoursesPageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        FormsModule
-      ],
       declarations: [
-        CoursesPageComponent,
-        SearchComponent,
-        CourseComponent
+        CoursesPageComponent
       ],
       providers: [
         CoursesService
+      ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
       ]
     })
     .compileComponents();
@@ -49,13 +43,13 @@ describe('CoursesPageComponent', () => {
   });
 
   it('should be created courses list', () => {
-    const getCoursesLength = coursesService.getCourses().length;
-    expect(component.courses.length).toBe(getCoursesLength);
+    const coursesLength = component.courses.length;
+    expect(coursesLength).not.toBe(0);
   });
 
   it('should emit onDelete action', () => {
     const spy = spyOn(component, 'onDelete');
-    fixture.debugElement.query(By.css('vc-course')).triggerEventHandler('deleteCourse', null);
+    fixture.debugElement.query(By.css('[data-test-id="vc-course"]')).triggerEventHandler('deleteCourse', null);
     fixture.detectChanges();
     expect(spy).toHaveBeenCalled();
   });

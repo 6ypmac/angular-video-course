@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { UserLoginService } from './user-login.service';
 
 describe('UserLoginService', () => {
@@ -19,6 +18,6 @@ describe('UserLoginService', () => {
 
   it('should get users', () => {
     const numberOfUsers = service.getUsers().length;
-    expect(service.getUsers().length).not.toBe(0);
+    expect(numberOfUsers).not.toBe(0);
   });
 });
