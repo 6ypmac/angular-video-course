@@ -12,7 +12,7 @@ export class CoursesService {
     const courses: CourseInterface[] = [
       {
         id: '1',
-        title: 'Video Course 1',
+        titleOfCourse: 'Video Course 1',
         creationDate: new Date('February 12, 2016'),
         duration: '1h 28m',
         description: '' +
@@ -22,7 +22,7 @@ export class CoursesService {
       },
       {
         id: '2',
-        title: 'Video Course 2',
+        titleOfCourse: 'Video Course 2',
         creationDate: new Date('August 08, 2018'),
         duration: '2h 10m',
         description: '' +
@@ -33,7 +33,7 @@ export class CoursesService {
       },
       {
         id: '3',
-        title: 'Video Course 3',
+        titleOfCourse: 'Video Course 3',
         creationDate: new Date('November 11, 2019'),
         duration: '45m',
         description: '' +

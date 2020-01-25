@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 import { SearchComponent } from './search.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -8,7 +10,11 @@ describe('SearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchComponent ]
+      imports: [ FormsModule ],
+      declarations: [ SearchComponent ],
+      schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+      ]
     })
     .compileComponents();
   }));
@@ -21,5 +27,20 @@ describe('SearchComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should emit find action once clicked', () => {
+    const spy = spyOn(component, 'find');
+    fixture.debugElement.query(
+      By.css('[data-test-id="search-find-button"]')
+    ).triggerEventHandler('click', null);
+    fixture.detectChanges();
+    expect(spy).toHaveBeenCalled();
+  });
+
+  it('should log course name', () => {
+    const consoleSpy = spyOn(console, 'log');
+    component.find();
+    expect(consoleSpy).toHaveBeenCalled();
   });
 });
