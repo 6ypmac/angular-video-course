@@ -3,6 +3,25 @@
   margin: 10px 0;
   background: #eee;
   border: 1px solid #ddd;
+
+  h3 {
+    span {
+      display: none;
+      color: #f80;
+      font-size: 1.25em;
+      line-height: 1;
+    }
+  }
+
+  &.top-rate {
+    background-color: #fff8d0;
+
+    h3 {
+      span {
+        display: inline;
+      }
+    }
+  }
 }
 
 .buttons-box {

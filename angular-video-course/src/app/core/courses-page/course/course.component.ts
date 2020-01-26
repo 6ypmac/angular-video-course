@@ -8,6 +8,7 @@ import { CourseInterface } from '../course.interface';
 })
 export class CourseComponent implements OnInit {
   @Input() course: CourseInterface;
+  @Input() courseIndex: number;
   @Output() deleteCourse: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }

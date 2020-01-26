@@ -9,8 +9,9 @@ import { UserLoginComponent } from './header/user-login/user-login.component';
 import { CourseComponent } from './courses-page/course/course.component';
 import { SearchComponent } from './courses-page/search/search.component';
 import { FormsModule } from '@angular/forms';
-
-
+import { CourseFreshnessDirective } from './courses-page/course/course-freshness.directive';
+import { CourseDurationPipe } from './courses-page/course/course-duration.pipe';
+import { SearchByCourseNamePipe } from './courses-page/search/search-by-course-name.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,10 @@ import { FormsModule } from '@angular/forms';
     CoursesPageComponent,
     UserLoginComponent,
     CourseComponent,
-    SearchComponent],
+    SearchComponent,
+    CourseFreshnessDirective,
+    CourseDurationPipe,
+    SearchByCourseNamePipe],
   exports: [
     HeaderComponent,
     FooterComponent,

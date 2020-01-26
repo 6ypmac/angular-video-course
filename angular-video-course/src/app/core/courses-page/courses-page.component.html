@@ -1,6 +1,15 @@
-<vc-search></vc-search>
+<vc-search (courseNameForSearch)="onFind($event)"></vc-search>
 <div class="add-course-button-box">
   <button>Add course</button>
 </div>
-<vc-course data-test-id="vc-course" (deleteCourse)="onDelete($event)" *ngFor="let course of courses" [course]="course"></vc-course>
+<div class="no-data-message" *ngIf="!courses.length">
+  No data. Feel free to add new course
+</div>
+<vc-course
+  data-test-id="vc-course"
+  (deleteCourse)="onDelete($event)"
+  *ngFor="let course of courses; index as i"
+  [course]="course"
+  [courseIndex]="i"
+></vc-course>
 

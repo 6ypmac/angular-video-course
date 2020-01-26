@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnInit } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'vc-search',
@@ -6,6 +6,7 @@ import { Component, Input, Output, OnInit } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  @Output() courseNameForSearch: EventEmitter<string> = new EventEmitter<string>();
   courseName = '';
 
   constructor() { }
@@ -14,7 +15,7 @@ export class SearchComponent implements OnInit {
   }
 
   public find(): void {
-    console.log(this.courseName);
+    this.courseNameForSearch.emit(this.courseName);
   }
 
 }

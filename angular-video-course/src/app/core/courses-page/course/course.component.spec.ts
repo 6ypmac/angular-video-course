@@ -30,11 +30,12 @@ describe('CourseComponent', () => {
       id: '1',
       titleOfCourse: 'Video Course 1',
       creationDate: new Date('February 12, 2016'),
-      duration: '1h 28m',
+      duration: 88,
       description: '' +
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt' +
         'ut labore et dolore magna aliqua. At auctor urna nunc id cursus metus aliquam.' +
         '',
+      topRate: true,
     };
 
     component.course = expectedCourse;
@@ -109,11 +110,12 @@ class TestHostCoursesPageComponent {
       id: '1',
       titleOfCourse: 'Video Course 1',
       creationDate: new Date('February 12, 2016'),
-      duration: '1h 28m',
+      duration: 88,
       description: '' +
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt' +
         'ut labore et dolore magna aliqua. At auctor urna nunc id cursus metus aliquam.' +
         '',
+      topRate: true,
     }
   ];
   onClick() {
