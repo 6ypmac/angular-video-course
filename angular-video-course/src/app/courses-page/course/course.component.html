@@ -1,11 +1,18 @@
-<div [ngClass]="course.topRate ? 'course-box top-rate' : 'course-box'" [vcCourseFreshness]="course.creationDate">
-  <h3 data-test-id="course-title">
+<div
+  *ngIf="course"
+  [ngClass]="{
+    'course-box': true,
+    'top-rate': course.topRate
+  }"
+  [vcBorderDecorator]="course.creationDate"
+>
+  <h3>
     Video Course {{ courseIndex + 1 }}
-    {{ course.titleOfCourse | uppercase }}
-    <span>&hearts;</span>
+    <span data-test-id="course-title">{{ course.titleOfCourse | uppercase }}</span>
+    <span class="hart">&hearts;</span>
   </h3>
   <h4>
-    <span>{{ course.duration | courseDuration }}</span>
+    <span>{{ course.duration | transformMinutes }}</span>
     <span> | </span>
     <span>{{ course.creationDate  | date: 'mediumDate'}}</span>
   </h4>

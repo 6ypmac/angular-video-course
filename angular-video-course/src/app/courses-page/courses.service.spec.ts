@@ -19,6 +19,6 @@ describe('CoursesService', () => {
 
   it('should get courses', () => {
     const numberOfUsers = service.getCourses().length;
-    expect(service.getCourses().length).not.toBe(0);
+    expect(numberOfUsers).not.toBe(0);
   });
 });

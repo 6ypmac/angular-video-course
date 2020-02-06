@@ -4,14 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoComponent } from './header/logo/logo.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
-import { CoursesPageComponent } from './courses-page/courses-page.component';
 import { UserLoginComponent } from './header/user-login/user-login.component';
-import { CourseComponent } from './courses-page/course/course.component';
-import { SearchComponent } from './courses-page/search/search.component';
-import { FormsModule } from '@angular/forms';
-import { CourseFreshnessDirective } from './courses-page/course/course-freshness.directive';
-import { CourseDurationPipe } from './courses-page/course/course-duration.pipe';
-import { SearchByCourseNamePipe } from './courses-page/search/search-by-course-name.pipe';
 
 @NgModule({
   declarations: [
@@ -19,22 +12,15 @@ import { SearchByCourseNamePipe } from './courses-page/search/search-by-course-n
     FooterComponent,
     LogoComponent,
     BreadcrumbsComponent,
-    CoursesPageComponent,
-    UserLoginComponent,
-    CourseComponent,
-    SearchComponent,
-    CourseFreshnessDirective,
-    CourseDurationPipe,
-    SearchByCourseNamePipe],
+    UserLoginComponent
+  ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    BreadcrumbsComponent,
-    CoursesPageComponent
+    BreadcrumbsComponent
   ],
   imports: [
-    CommonModule,
-    FormsModule
+    CommonModule
   ]
 })
 export class CoreModule { }

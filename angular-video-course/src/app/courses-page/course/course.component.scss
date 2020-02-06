@@ -5,7 +5,7 @@
   border: 1px solid #ddd;
 
   h3 {
-    span {
+    .hart {
       display: none;
       color: #f80;
       font-size: 1.25em;
@@ -17,7 +17,7 @@
     background-color: #fff8d0;
 
     h3 {
-      span {
+      .hart {
         display: inline;
       }
     }

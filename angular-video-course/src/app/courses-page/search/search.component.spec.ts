@@ -2,7 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { SearchComponent } from './search.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { SearchByCourseNamePipe } from './search-by-course-name.pipe';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;
@@ -11,7 +12,10 @@ describe('SearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ FormsModule ],
-      declarations: [ SearchComponent ],
+      declarations: [
+        SearchComponent,
+        SearchByCourseNamePipe
+      ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ]
@@ -36,11 +40,5 @@ describe('SearchComponent', () => {
     ).triggerEventHandler('click', null);
     fixture.detectChanges();
     expect(spy).toHaveBeenCalled();
-  });
-
-  it('should log course name', () => {
-    const consoleSpy = spyOn(console, 'log');
-    component.find();
-    expect(consoleSpy).toHaveBeenCalled();
   });
 });

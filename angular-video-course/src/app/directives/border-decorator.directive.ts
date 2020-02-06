@@ -1,16 +1,16 @@
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { Directive, Renderer2, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
-  selector: '[vcCourseFreshness]'
+  selector: '[vcBorderDecorator]'
 })
-export class CourseFreshnessDirective implements OnInit {
-  @Input('vcCourseFreshness') creationDate: Date;
+export class BorderDecoratorDirective implements OnInit {
+  @Input('vcBorderDecorator') creationDate: Date;
 
   currentDate: Date = new Date();
   lastFreshDate: Date = new Date();
   freshDateRange = 14;
 
-  constructor(private element: ElementRef) {}
+  constructor( private renderer: Renderer2, private element: ElementRef) {}
 
   ngOnInit() {
     this.lastFreshDate = new Date(this.lastFreshDate.setDate( this.lastFreshDate.getDate() - this.freshDateRange ));
@@ -28,6 +28,6 @@ export class CourseFreshnessDirective implements OnInit {
   }
 
   private  borderStatusColor(color: string) {
-    this.element.nativeElement.style.borderColor = color;
+    this.renderer.setStyle(this.element.nativeElement, 'border-color', color);
   }
 }

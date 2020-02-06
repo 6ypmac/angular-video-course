@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { CoursesPageComponent } from './courses-page.component';
 import { CoursesService } from './courses.service';
-import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('CoursesPageComponent', () => {
   let component: CoursesPageComponent;
