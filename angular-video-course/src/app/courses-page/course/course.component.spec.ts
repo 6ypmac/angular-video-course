@@ -3,8 +3,8 @@ import { By } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CourseComponent } from './course.component';
 import { CourseInterface } from '../course.interface';
-import { BorderDecoratorDirective } from '../../directives/border-decorator.directive';
-import { TransformMinutesPipe } from '../../pipes/transform-minutes.pipe';
+import { BorderDecoratorDirective } from '../../directives';
+import { TransformMinutesPipe } from '../../pipes';
 
 describe('CourseComponent', () => {
   let component: CourseComponent;

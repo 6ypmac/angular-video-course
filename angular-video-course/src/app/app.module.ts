@@ -5,12 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { CoursesPageComponent } from './courses-page/courses-page.component';
-import { CourseComponent } from './courses-page/course/course.component';
-import { SearchComponent } from './courses-page/search/search.component';
-import { BorderDecoratorDirective } from './directives/border-decorator.directive';
-import { TransformMinutesPipe } from './pipes/transform-minutes.pipe';
-import { SearchByCourseNamePipe } from './courses-page/search/search-by-course-name.pipe';
+import { CoursesPageComponent, CourseComponent, SearchComponent } from './courses-page';
+import { BorderDecoratorDirective } from './directives';
+import { TransformMinutesPipe, SearchByCourseNamePipe } from './pipes';
 
 @NgModule({
   declarations: [

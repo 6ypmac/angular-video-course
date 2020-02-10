@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { SearchComponent } from './search.component';
-import { SearchByCourseNamePipe } from './search-by-course-name.pipe';
+import { SearchByCourseNamePipe } from '../../pipes';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('SearchComponent', () => {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseInterface } from './course.interface';
 import { CoursesService } from './courses.service';
-import { SearchByCourseNamePipe } from './search/search-by-course-name.pipe';
+import { SearchByCourseNamePipe } from '../pipes';
 
 @Component({
   selector: 'vc-courses-page',

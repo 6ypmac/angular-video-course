@@ -1,5 +1,5 @@
 import { SearchByCourseNamePipe } from './search-by-course-name.pipe';
-import { CourseInterface } from '../course.interface';
+import { CourseInterface } from '../courses-page/course.interface';
 
 describe('SearchByCourseNamePipe', () => {
   it('create an instance', () => {
