@@ -1,7 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CourseComponent } from './course.component';
 import { CourseInterface } from '../course.interface';
+import { BorderDecoratorDirective } from '../../directives';
+import { TransformMinutesPipe } from '../../pipes';
 
 describe('CourseComponent', () => {
   let component: CourseComponent;
@@ -12,7 +15,9 @@ describe('CourseComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        CourseComponent
+        CourseComponent,
+        BorderDecoratorDirective,
+        TransformMinutesPipe
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
@@ -24,17 +29,18 @@ describe('CourseComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CourseComponent);
     component = fixture.componentInstance;
-    compiledComponent = fixture.debugElement.nativeElement;
+    compiledComponent = fixture.debugElement;
 
     expectedCourse = {
       id: '1',
-      titleOfCourse: 'Video Course 1',
+      titleOfCourse: 'Lorem ipsum',
       creationDate: new Date('February 12, 2016'),
-      duration: '1h 28m',
+      duration: 88,
       description: '' +
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt' +
         'ut labore et dolore magna aliqua. At auctor urna nunc id cursus metus aliquam.' +
         '',
+      topRate: true,
     };
 
     component.course = expectedCourse;
@@ -54,11 +60,14 @@ describe('CourseComponent', () => {
 
   it('should display title of course', () => {
     const expectedTitleOfCourse = expectedCourse.titleOfCourse;
-    expect(
-      compiledComponent
-        .querySelector('[data-test-id="course-title"]')
-        .textContent
-    ).toContain(expectedTitleOfCourse);
+    const value = compiledComponent
+      .query(
+        By.css('[data-test-id="course-title"]')
+      )
+      .nativeElement
+      .textContent;
+    expect(value)
+      .toContain(expectedTitleOfCourse.toUpperCase());
   });
 });
 
@@ -73,7 +82,9 @@ describe('CourseComponent when inside a test host', () => {
     TestBed.configureTestingModule({
       declarations: [
         CourseComponent,
-        TestHostCoursesPageComponent
+        TestHostCoursesPageComponent,
+        BorderDecoratorDirective,
+        TransformMinutesPipe
       ],
     }).compileComponents();
   }));
@@ -84,7 +95,6 @@ describe('CourseComponent when inside a test host', () => {
     fixture.detectChanges();
   });
 
-  // #docregion test-host-tests
   it('should delete course', () => {
     const courseDeleteId = testHost.testCourses[0].id;
     testHost.onDelete(courseDeleteId);
@@ -97,9 +107,9 @@ describe('CourseComponent when inside a test host', () => {
   template: `
     <vc-course
       (deleteCourse)="onDelete($event)"
-      (click)="onClick()"
-      *ngFor="let course of testCourses"
-      [course]="course">
+      *ngFor="let course of testCourses; index as i"
+      [course]="course"
+      [courseIndex]="i">
     </vc-course>
   `
 })
@@ -107,18 +117,17 @@ class TestHostCoursesPageComponent {
   testCourses: CourseInterface [] = [
     {
       id: '1',
-      titleOfCourse: 'Video Course 1',
+      titleOfCourse: 'Lorem ipsum',
       creationDate: new Date('February 12, 2016'),
-      duration: '1h 28m',
+      duration: 88,
       description: '' +
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt' +
         'ut labore et dolore magna aliqua. At auctor urna nunc id cursus metus aliquam.' +
         '',
+      topRate: true,
     }
   ];
-  onClick() {
-    console.log('click!');
-  }
+
   onDelete(id: string): void {
     this.testCourses = this.testCourses.filter((item: CourseInterface) => item.id !== id);
   }

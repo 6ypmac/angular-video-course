@@ -12,33 +12,36 @@ export class CoursesService {
     const courses: CourseInterface[] = [
       {
         id: '1',
-        titleOfCourse: 'Video Course 1',
-        creationDate: new Date('February 12, 2016'),
-        duration: '1h 28m',
+        titleOfCourse: 'Lorem ipsum',
+        creationDate: new Date('December 12, 2019'),
+        duration: 88,
         description: '' +
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt' +
           'ut labore et dolore magna aliqua. At auctor urna nunc id cursus metus aliquam.' +
           '',
+        topRate: true,
       },
       {
         id: '2',
-        titleOfCourse: 'Video Course 2',
-        creationDate: new Date('August 08, 2018'),
-        duration: '2h 10m',
+        titleOfCourse: 'Dolor ipsum amet',
+        creationDate: new Date('January 25, 2020'),
+        duration: 130,
         description: '' +
           'Iaculis at erat pellentesque adipiscing commodo elit at. Fermentum odio eu feugiat pretium. ' +
           'Orci ac auctor augue mauris augue neque gravida in fermentum. Molestie a iaculis at erat pellentesque. ' +
           'Non blandit massa enim nec dui nunc mattis enim.' +
           '',
+        topRate: false,
       },
       {
         id: '3',
-        titleOfCourse: 'Video Course 3',
-        creationDate: new Date('November 11, 2019'),
-        duration: '45m',
+        titleOfCourse: 'Lorem tincidunt libero',
+        creationDate: new Date('May 11, 2020'),
+        duration: 45,
         description: '' +
           'Urna id volutpat lacus laoreet non curabitur. Arcu non odio euismod lacinia at quis. Lacus sed viverra tellus in hac.' +
           '',
+        topRate: false,
       },
     ];
 

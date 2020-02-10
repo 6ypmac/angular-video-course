@@ -1,0 +1,26 @@
+<div
+  *ngIf="course"
+  [ngClass]="{
+    'course-box': true,
+    'top-rate': course.topRate
+  }"
+  [vcBorderDecorator]="course.creationDate"
+>
+  <h3>
+    Video Course {{ courseIndex + 1 }}
+    <span data-test-id="course-title">{{ course.titleOfCourse | uppercase }}</span>
+    <span class="hart">&hearts;</span>
+  </h3>
+  <h4>
+    <span>{{ course.duration | transformMinutes }}</span>
+    <span> | </span>
+    <span>{{ course.creationDate  | date: 'mediumDate'}}</span>
+  </h4>
+  <p>
+    {{ course.description }}
+  </p>
+  <div class="buttons-box">
+    <button>Edit</button>
+    <button class="btn-course-delete" (click)="delete()">Delete</button>
+  </div>
+</div>
